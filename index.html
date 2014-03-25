@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        function SentMessage(){
+           var textt = "1";
+           var check = document.send.toto.value;
+           alert(check);
+             $.ajax({
+                url: "test.php", 
+                type: "POST", 
+                data: {'okkk':check},
+                dataType: "html",
+                success: function(response) {
+                    if(response=="hello "){
+                        alert(response);
+                    }
+                    else{
+                        $('#div_name').html(response);
+                    }
+                }, 
+                error: function() {
+                  console.log("ajax error!"); 
+                }
+             });
+        }
+        </script>
+        <body>
+            <form method="post" name="send" action="go.php">
+                <input tpye="text" id="toto" name="toto"/>
+                <input type="button" onClick="SentMessage();" />
+            </form>
+        <div id="div_name">5</div>
+    </body>
+</html>
