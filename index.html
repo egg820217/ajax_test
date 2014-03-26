@@ -7,9 +7,7 @@
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <script type="text/javascript">
         function SentMessage(){
-           var textt = "1";
            var check = document.send.toto.value;
-           alert(check);
              $.ajax({
                 url: "test.php", 
                 type: "POST", 
@@ -17,10 +15,14 @@
                 dataType: "html",
                 success: function(response) {
                     if(response=="hello "){
+                        $('#div_name').html(response);
                         alert(response);
                     }
+                    else if(check==""){
+                        alert("不能輸入空值");
+                    }
                     else{
-                        $('#div_name').html(response);
+                        document.send.submit();
                     }
                 }, 
                 error: function() {
@@ -32,8 +34,8 @@
         <body>
             <form method="post" name="send" action="go.php">
                 <input tpye="text" id="toto" name="toto"/>
-                <input type="button" onClick="SentMessage();" />
+                <input type="button" value="送出" onClick="SentMessage();" />
             </form>
-        <div id="div_name">5</div>
+        <div id="div_name"</div>
     </body>
 </html>

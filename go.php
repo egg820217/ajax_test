@@ -1,3 +1,3 @@
 <?php
-	echo $_GET['toto'] ." nice!!";
+	echo $_POST['toto'] ." nice!!";
 ?>

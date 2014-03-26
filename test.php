@@ -1,5 +1,5 @@
 <?php
-if($_POST['okkk']==0){
+if($_POST['okkk']==1){
 	echo "hello";
 }
 else{
